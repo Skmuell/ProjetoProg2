@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67ea9ff7-1a7f-4941-b899-3c0f2e8313af" name="Changes" comment="">
+    <list default="true" id="67ea9ff7-1a7f-4941-b899-3c0f2e8313af" name="Changes" comment="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Funcionario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Funcionario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Passagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Passagem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +21,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -85,11 +84,63 @@
       <workItem from="1709221536640" duration="84000" />
       <workItem from="1709554821966" duration="191000" />
       <workItem from="1709555142617" duration="23000" />
-      <workItem from="1709555233222" duration="2622000" />
+      <workItem from="1709555233222" duration="5392000" />
     </task>
+    <task id="LOCAL-00001" summary="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
+      <option name="closed" value="true" />
+      <created>1709558350031</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709558350031</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
+      <option name="closed" value="true" />
+      <created>1709558501066</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709558501066</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
+      <option name="closed" value="true" />
+      <created>1709561005874</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709561005874</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades" />
   </component>
 </project>

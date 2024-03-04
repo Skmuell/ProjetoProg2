@@ -20,6 +20,7 @@ public class Main {
             if (opcao == 1) {
                 System.out.println("Então você é um cliente! Seja muito bem vindo a 345 milhas!");
                 System.out.println("Aqui oferecemos todo o tipo de recurso para você viajar! Por um preço que cabe no seu bolso!");
+                System.out.println("Vamos começar o cadastro do cliente, pressione 'Enter' para continuar.");
 
                 try {
                     scanner.nextLine();
