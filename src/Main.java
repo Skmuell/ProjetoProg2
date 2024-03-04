@@ -112,7 +112,7 @@ public class Main {
         } else if (opcao == 3) {
             excluirPassagem(scanner, passagens);
         } else if (opcao == 4) {
-
+            //aqui ele volta pra o menu principal
         } else {
             System.out.println("Comando não reconhecido. Por favor, tente novamente.");
         }
