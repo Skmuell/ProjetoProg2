@@ -24,10 +24,10 @@ public class Main {
                 try {
                     scanner.nextLine();
 
-                    System.out.println("Por favor digite seu nome:");
+                    System.out.println("Por favor digite seu nome: ");
                     String nomeCliente = scanner.nextLine();
 
-                    System.out.println("Por favor digite sua Idade:");
+                    System.out.println("Por favor digite sua Idade: ");
                     int idadeCliente = scanner.nextInt();
                     scanner.nextLine();
 
@@ -53,14 +53,14 @@ public class Main {
                 scanner.nextLine();
 
                 if (escolhaTime == 1) {
-                    System.out.println("Por favor digite seu nome:");
+                    System.out.println("Por favor digite seu nome: ");
                     String nomeFuncionario = scanner.nextLine();
 
-                    System.out.println("Por favor digite sua idade:");
+                    System.out.println("Por favor digite sua idade: ");
                     int idadeFuncionario = scanner.nextInt();
                     scanner.nextLine();
 
-                    System.out.println("Por favor digite sua função:");
+                    System.out.println("Por favor digite sua função: ");
                     String cargoFuncionario = scanner.nextLine();
 
                     Funcionario funcionario = new Funcionario(proximoIdFuncionario++, nomeFuncionario, idadeFuncionario, cargoFuncionario);
@@ -68,7 +68,7 @@ public class Main {
 
                     System.out.println("Cadastro de funcionário realizado com sucesso! Seu ID é: " + (proximoIdFuncionario - 1));
                 } else if (escolhaTime == 2) {
-                    System.out.println("Por favor digite seu ID:");
+                    System.out.println("Por favor digite seu ID: ");
                     int idFuncionario = scanner.nextInt();
                     scanner.nextLine();
 
@@ -112,7 +112,7 @@ public class Main {
         } else if (opcao == 3) {
             excluirPassagem(scanner, passagens);
         } else if (opcao == 4) {
-            // Voltar
+
         } else {
             System.out.println("Comando não reconhecido. Por favor, tente novamente.");
         }
