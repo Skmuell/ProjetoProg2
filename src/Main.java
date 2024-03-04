@@ -1,173 +1,209 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        List<Funcionario> funcionarios = new ArrayList<>();
-        int proximoIdFuncionario = 1;
-        List<Passagem> passagens = new ArrayList<>();
-        int proximoIdPassagem = 1;
-
-        System.out.println("Seja bem vindo a 345 Milhas, a maior plataforma de passagens do Sudão!");
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        ArrayList<Passagem> passagens = new ArrayList<>();
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
         while (true) {
-            System.out.println("Digite 1 se você é um cliente, 2 se você é funcionário, 3 para operações com passagem ou 4 para sair:");
-            int opcao = scanner.nextInt();
-            scanner.nextLine();
+            System.out.println("Bem-vindo! Você é um Cliente ou um Funcionário?");
+            System.out.println("1. Cliente");
+            System.out.println("2. Funcionário");
+            System.out.println("3. Sair");
+            int escolha = scanner.nextInt();
 
-            if (opcao == 1) {
-                System.out.println("Então você é um cliente! Seja muito bem vindo a 345 milhas!");
-                System.out.println("Aqui oferecemos todo o tipo de recurso para você viajar! Por um preço que cabe no seu bolso!");
-                System.out.println("Vamos começar o cadastro do cliente, pressione 'Enter' para continuar.");
-
-                try {
+            if (escolha == 1) {
+                System.out.println("Você já está cadastrado?");
+                System.out.println("1. Sim");
+                System.out.println("2. Não, quero me cadastrar");
+                int cadastro = scanner.nextInt();
+                if (cadastro == 1) {
+                    System.out.println("Digite seu CPF:");
                     scanner.nextLine();
-
-                    System.out.println("Por favor digite seu nome: ");
-                    String nomeCliente = scanner.nextLine();
-
-                    System.out.println("Por favor digite sua Idade: ");
-                    int idadeCliente = scanner.nextInt();
-                    scanner.nextLine();
-
-                    System.out.println("Por favor digite seu Cpf: ");
-                    String cpfCliente = scanner.nextLine();
-
-                    Cliente cliente = new Cliente(nomeCliente, idadeCliente, cpfCliente);
-
-                    System.out.println("Informações do Cliente: ");
-                    System.out.println("Nome: " + cliente.getNome_cliente());
-                    System.out.println("Idade: " + cliente.getIdade_cliente());
-                    System.out.println("CPF: " + cliente.getCpf_cliente());
-
-                } catch (Exception e) {
-                    System.out.println("Ocorreu um erro ao cadastrar o cliente: " + e.getMessage());
-                }
-            } else if (opcao == 2) {
-                System.out.println("Então você já faz parte do time, seja muito bem vindo!");
-                System.out.println("Caso queira efetuar o cadastro de sua conta no nosso ambiente aperte 1 ");
-                System.out.println("Caso queira acessar sua conta aperte 2");
-
-                int escolhaTime = scanner.nextInt();
-                scanner.nextLine();
-
-                if (escolhaTime == 1) {
-                    System.out.println("Por favor digite seu nome: ");
-                    String nomeFuncionario = scanner.nextLine();
-
-                    System.out.println("Por favor digite sua idade: ");
-                    int idadeFuncionario = scanner.nextInt();
-                    scanner.nextLine();
-
-                    System.out.println("Por favor digite sua função: ");
-                    String cargoFuncionario = scanner.nextLine();
-
-                    Funcionario funcionario = new Funcionario(proximoIdFuncionario++, nomeFuncionario, idadeFuncionario, cargoFuncionario);
-                    funcionarios.add(funcionario);
-
-                    System.out.println("Cadastro de funcionário realizado com sucesso! Seu ID é: " + (proximoIdFuncionario - 1));
-                } else if (escolhaTime == 2) {
-                    System.out.println("Por favor digite seu ID: ");
-                    int idFuncionario = scanner.nextInt();
-                    scanner.nextLine();
-
-                    boolean encontrado = false;
-                    for (Funcionario funcionario : funcionarios) {
-                        if (funcionario.getId() == idFuncionario) {
-                            System.out.println("Bem-vindo de volta, " + funcionario.getNome() + "!");
-                            encontrado = true;
-                            break;
-                        }
+                    String cpf = scanner.nextLine();
+                    Cliente clienteEncontrado = buscarClientePorCPF(clientes, cpf);
+                    if (clienteEncontrado != null) {
+                        comprarPassagem(clienteEncontrado, passagens, scanner);
+                    } else {
+                        System.out.println("Cliente não encontrado.");
                     }
-                    if (!encontrado) {
-                        System.out.println("Funcionário não encontrado. Por favor, verifique o ID e tente novamente.");
-                    }
+                } else if (cadastro == 2) {
+                    cadastrarNovoCliente(clientes);
                 } else {
                     System.out.println("Opção inválida.");
                 }
-            } else if (opcao == 3) {
-                operacoesPassagem(scanner, passagens, proximoIdPassagem);
-                proximoIdPassagem++;
-            } else if (opcao == 4) {
-                System.out.println("Obrigado por escolher a 345 Milhas, até mais <3");
+            } else if (escolha == 2) {
+                exibirMenuFuncionario(clientes, passagens, funcionarios);
+            } else if (escolha == 3) {
                 break;
             } else {
-                System.out.println("Comando não reconhecido. Por favor, tente novamente.");
+                System.out.println("Opção inválida.");
             }
         }
-
-        scanner.close();
     }
 
-    private static void operacoesPassagem(Scanner scanner, List<Passagem> passagens, int proximoIdPassagem) {
-        System.out.println("Digite 1 para cadastrar passagem, 2 para editar passagem, 3 para excluir passagem ou 4 para voltar:");
-        int opcao = scanner.nextInt();
-        scanner.nextLine();
+    public static Cliente buscarClientePorCPF(ArrayList<Cliente> clientes, String cpf) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getCpf_cliente().equals(cpf)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
 
-        if (opcao == 1) {
-            cadastrarPassagem(scanner, passagens, proximoIdPassagem);
-        } else if (opcao == 2) {
-            editarPassagem(scanner, passagens);
-        } else if (opcao == 3) {
-            excluirPassagem(scanner, passagens);
-        } else if (opcao == 4) {
-            //aqui ele volta pra o menu principal
+    public static void cadastrarNovoCliente(ArrayList<Cliente> clientes) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o nome do cliente:");
+        String nome = scanner.nextLine();
+        System.out.println("Digite a idade do cliente:");
+        int idade = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Digite o CPF do cliente:");
+        String cpf = scanner.nextLine();
+
+        Cliente novoCliente = new Cliente(nome, idade, cpf);
+        clientes.add(novoCliente);
+        System.out.println("Cliente cadastrado com sucesso.");
+    }
+
+    public static void comprarPassagem(Cliente cliente, ArrayList<Passagem> passagens, Scanner scanner) {
+        System.out.println("Bem-vindo, " + cliente.getNome_cliente() + "!");
+
+        System.out.println("Lista de Passagens: ");
+        for (Passagem passagem : passagens) {
+            System.out.println(passagem.getId_passagem() + ". " + passagem.getNome_passagem());
+        }
+
+        System.out.println("Digite o ID da passagem que deseja comprar ou digite 0 para criar uma nova passagem:");
+        int idPassagem = scanner.nextInt();
+
+        if (idPassagem == 0) {
+            scanner.nextLine();
+            System.out.println("Digite o nome da nova passagem:");
+            String novoNome = scanner.nextLine();
+            Passagem novaPassagem = new Passagem(passagens.size() + 1, novoNome);
+            passagens.add(novaPassagem);
+            System.out.println("Nova passagem criada com sucesso!");
+            System.out.println("Passagem comprada com sucesso!");
         } else {
-            System.out.println("Comando não reconhecido. Por favor, tente novamente.");
-        }
-    }
-
-    private static void cadastrarPassagem(Scanner scanner, List<Passagem> passagens, int proximoIdPassagem) {
-        System.out.println("Por favor digite o nome da passagem:");
-        String nomePassagem = scanner.nextLine();
-
-        Passagem passagem = new Passagem(proximoIdPassagem, nomePassagem);
-        passagens.add(passagem);
-
-        System.out.println("Passagem cadastrada com sucesso! ID: " + proximoIdPassagem);
-    }
-
-    private static void editarPassagem(Scanner scanner, List<Passagem> passagens) {
-        System.out.println("Por favor digite o ID da passagem que deseja editar:");
-        int idPassagem = scanner.nextInt();
-        scanner.nextLine();
-
-        boolean encontrada = false;
-        for (Passagem passagem : passagens) {
-            if (passagem.getId_passagem() == idPassagem) {
-                System.out.println("Digite o novo nome da passagem:");
-                String novoNome = scanner.nextLine();
-                passagem.setNome_passagem(novoNome);
-                System.out.println("Passagem editada com sucesso!");
-                encontrada = true;
-                break;
+            Passagem passagemEscolhida = buscarPassagemPorID(passagens, idPassagem);
+            if (passagemEscolhida != null) {
+                System.out.println("Passagem comprada com sucesso!");
+            } else {
+                System.out.println("Passagem não encontrada.");
             }
         }
+    }
 
-        if (!encontrada) {
+    public static Passagem buscarPassagemPorID(ArrayList<Passagem> passagens, int id) {
+        for (Passagem passagem : passagens) {
+            if (passagem.getId_passagem() == id) {
+                return passagem;
+            }
+        }
+        return null;
+    }
+
+    public static void exibirMenuFuncionario(ArrayList<Cliente> clientes, ArrayList<Passagem> passagens, ArrayList<Funcionario> funcionarios) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Bem-vindo, Funcionário!");
+
+        while (true) {
+            System.out.println("Selecione uma opção:");
+            System.out.println("1. Editar Passagens");
+            System.out.println("2. Excluir Passagens");
+            System.out.println("3. Criar Cliente");
+            System.out.println("4. Editar Cliente");
+            System.out.println("5. Excluir Cliente");
+            System.out.println("6. Voltar ao Menu Principal");
+            int escolha = scanner.nextInt();
+
+            if (escolha == 1) {
+                editarPassagens(passagens);
+            } else if (escolha == 2) {
+                excluirPassagens(passagens);
+            } else if (escolha == 3) {
+                cadastrarNovoCliente(clientes);
+            } else if (escolha == 4) {
+                editarCliente(clientes);
+            } else if (escolha == 5) {
+                excluirCliente(clientes);
+            } else if (escolha == 6) {
+                break;
+            } else {
+                System.out.println("Opção inválida.");
+            }
+        }
+    }
+
+    public static void editarPassagens(ArrayList<Passagem> passagens) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Lista de Passagens:");
+        for (Passagem passagem : passagens) {
+            System.out.println(passagem.getId_passagem() + ". " + passagem.getNome_passagem());
+        }
+        System.out.println("Digite o ID da passagem que deseja editar:");
+        int idPassagem = scanner.nextInt();
+        Passagem passagem = buscarPassagemPorID(passagens, idPassagem);
+        if (passagem != null) {
+            scanner.nextLine();
+            System.out.println("Digite o novo nome da passagem:");
+            String novoNome = scanner.nextLine();
+            passagem.setNome_passagem(novoNome);
+            System.out.println("Passagem editada com sucesso.");
+        } else {
             System.out.println("Passagem não encontrada.");
         }
     }
 
-    private static void excluirPassagem(Scanner scanner, List<Passagem> passagens) {
-        System.out.println("Por favor digite o ID da passagem que deseja excluir:");
-        int idPassagem = scanner.nextInt();
-        scanner.nextLine();
-
-        boolean removida = false;
+    public static void excluirPassagens(ArrayList<Passagem> passagens) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Lista de Passagens:");
         for (Passagem passagem : passagens) {
-            if (passagem.getId_passagem() == idPassagem) {
-                passagens.remove(passagem);
-                System.out.println("Passagem excluída com sucesso!");
-                removida = true;
-                break;
-            }
+            System.out.println(passagem.getId_passagem() + ". " + passagem.getNome_passagem());
         }
-
-        if (!removida) {
+        System.out.println("Digite o ID da passagem que deseja excluir:");
+        int idPassagem = scanner.nextInt();
+        Passagem passagem = buscarPassagemPorID(passagens, idPassagem);
+        if (passagem != null) {
+            passagens.remove(passagem);
+            System.out.println("Passagem excluída com sucesso.");
+        } else {
             System.out.println("Passagem não encontrada.");
+        }
+    }
+
+    public static void editarCliente(ArrayList<Cliente> clientes) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o CPF do cliente que deseja editar:");
+        String cpfCliente = scanner.nextLine();
+        Cliente cliente = buscarClientePorCPF(clientes, cpfCliente);
+        if (cliente != null) {
+            System.out.println("Digite o novo nome do cliente:");
+            String novoNome = scanner.nextLine();
+            cliente.setNome(novoNome);
+            System.out.println("Digite a nova idade do cliente:");
+            int novaIdade = scanner.nextInt();
+            cliente.setIdade_cliente(novaIdade);
+            System.out.println("Cliente editado com sucesso.");
+        } else {
+            System.out.println("Cliente não encontrado.");
+        }
+    }
+
+    public static void excluirCliente(ArrayList<Cliente> clientes) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o CPF do cliente que deseja excluir:");
+        String cpfCliente = scanner.nextLine();
+        Cliente cliente = buscarClientePorCPF(clientes, cpfCliente);
+        if (cliente != null) {
+            clientes.remove(cliente);
+            System.out.println("Cliente excluído com sucesso.");
+        } else {
+            System.out.println("Cliente não encontrado.");
         }
     }
 }
