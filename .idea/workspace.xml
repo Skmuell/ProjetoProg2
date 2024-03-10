@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67ea9ff7-1a7f-4941-b899-3c0f2e8313af" name="Changes" comment="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +43,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Samue/IdeaProjects/vivaupe&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Samue/IdeaProjects/VivaUpe&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -52,7 +53,14 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="FrontEnd" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FrontEnd" />
+      <module name="gerenciamento_passagem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="gerenciamento_passagem" />
@@ -63,6 +71,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.FrontEnd" />
       </list>
     </recent_temporary>
   </component>
@@ -84,7 +93,14 @@
       <workItem from="1709221536640" duration="84000" />
       <workItem from="1709554821966" duration="191000" />
       <workItem from="1709555142617" duration="23000" />
-      <workItem from="1709555233222" duration="5392000" />
+      <workItem from="1709555233222" duration="6468000" />
+      <workItem from="1709574190563" duration="3425000" />
+      <workItem from="1709830946809" duration="27000" />
+      <workItem from="1709831194059" duration="21000" />
+      <workItem from="1709831222167" duration="34000" />
+      <workItem from="1709831490629" duration="114000" />
+      <workItem from="1710096252566" duration="105000" />
+      <workItem from="1710096577697" duration="2143000" />
     </task>
     <task id="LOCAL-00001" summary="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
       <option name="closed" value="true" />
@@ -110,7 +126,23 @@
       <option name="project" value="LOCAL" />
       <updated>1709561005874</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
+      <option name="closed" value="true" />
+      <created>1709569100351</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709569100351</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fix-Feat: Corrigindo bugs e adicionando novas funcionalidades">
+      <option name="closed" value="true" />
+      <created>1709575985709</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709575985709</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
