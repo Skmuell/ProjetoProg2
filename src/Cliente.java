@@ -1,10 +1,11 @@
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
     private String nome_cliente;
     private int idade_cliente;
     private String cpf_cliente;
 
     public Cliente(String nome_cliente, int idade_cliente, String cpf_cliente) {
-        super();
         this.nome_cliente = nome_cliente;
         this.idade_cliente = idade_cliente;
         this.cpf_cliente = cpf_cliente;
