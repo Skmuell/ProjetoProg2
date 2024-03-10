@@ -1,4 +1,6 @@
-public class Passagem {
+import java.io.Serializable;
+
+public class Passagem implements Serializable {
     private int id_passagem;
     private String nome_passagem;
 
@@ -23,4 +25,3 @@ public class Passagem {
         this.nome_passagem = nome_passagem;
     }
 }
-
