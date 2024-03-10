@@ -9,7 +9,7 @@ public class Main {
         List<Cliente> clientes = new ArrayList<>();
         List<Passagem> passagens = new ArrayList<>();
         List<Funcionario> funcionarios = new ArrayList<>();
-        carregarDados(clientes, passagens, funcionarios); // Carrega os dados dos arquivos
+        carregarDados(clientes, passagens, funcionarios); 
 
         while (true) {
             System.out.println("Bem-vindo! Você é um Cliente ou um Funcionário?");
@@ -41,7 +41,7 @@ public class Main {
             } else if (escolha == 2) {
                 exibirMenuFuncionario(clientes, passagens, funcionarios);
             } else if (escolha == 3) {
-                salvarDados(clientes, passagens, funcionarios); // Salva os dados nos arquivos
+                salvarDados(clientes, passagens, funcionarios); 
                 break;
             } else {
                 System.out.println("Opção inválida.");
@@ -244,7 +244,7 @@ public class Main {
             System.out.println("Dados salvos com sucesso.");
         } catch (IOException e) {
             System.out.println("Erro ao salvar dados: " + e.getMessage());
-            e.printStackTrace(); // Adicione esta linha para imprimir o rastreamento completo da exceção
+            e.printStackTrace(); 
         }
     }
 
